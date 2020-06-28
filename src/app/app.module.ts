@@ -17,6 +17,11 @@ import { RoomComponent } from "./room/room.component";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { ConfigComponent } from "./config/config.component";
+import { ConfigNodeEntryComponent } from "./config-node-entry/config-node-entry.component";
+import { ToolbarComponent } from "./toolbar/toolbar.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { MatInputModule } from "@angular/material/input";
     LoginComponent,
     LightComponent,
     DashboardComponent,
-    RoomComponent
+    RoomComponent,
+    ConfigComponent,
+    ConfigNodeEntryComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,9 @@ import { MatInputModule } from "@angular/material/input";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
