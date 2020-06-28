@@ -1,0 +1,28 @@
+<div class="col-md-3 mt-3 mx-auto">
+	<div class="card" class="bg-light">
+		<div class="card-header">
+			<ul class="nav nav-tabs card-header-tabs">
+				<li class="nav-item">
+					<a class="nav-link active">{{ name }}</a>
+				</li>
+				<li class="nav-item">
+					<mat-checkbox [(ngModel)]="controlRoom" class="text-center ml-2">
+						control room
+					</mat-checkbox>
+				</li>
+			</ul>
+		</div>
+
+		<div class="card-body">
+			<div *ngIf="controlRoom; then thenBlock; else elseBlock"></div>
+			<ng-template #thenBlock>
+				<app-light [name]="" [room]="name"></app-light>
+			</ng-template>
+			<ng-template #elseBlock>
+				<div *ngFor="let light of lights; trackBy: trackByFn">
+					<app-light [name]="light.name" [room]="name"></app-light>
+				</div>
+			</ng-template>
+		</div>
+	</div>
+</div>

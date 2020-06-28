@@ -1,0 +1,55 @@
+<mat-form-field appearance="fill" class="full-width-field">
+	<mat-label>id</mat-label>
+	<input
+		matInput
+		[(ngModel)]="id"
+		maxlength="8"
+		type="text"
+		class="text-center"
+	/>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="full-width-field">
+	<mat-label>name</mat-label>
+	<input
+		matInput
+		[(ngModel)]="name"
+		maxlength="12"
+		type="text"
+		class="text-center"
+	/>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="full-width-field">
+	<mat-label>room</mat-label>
+	<input
+		matInput
+		[(ngModel)]="room"
+		maxlength="12"
+		type="text"
+		class="text-center"
+	/>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="full-width-field">
+	<mat-label>leds</mat-label>
+	<input
+		matInput
+		[(ngModel)]="leds"
+		maxlength="12"
+		type="number"
+		class="text-center"
+	/>
+</mat-form-field>
+
+<div *ngIf="type === 'create'; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock
+	><button class="btn btn-primary" (click)="create()">
+		Create
+	</button></ng-template
+>
+<ng-template #elseBlock
+	><button class="btn btn-primary" (click)="update()">
+		Update
+	</button></ng-template
+>

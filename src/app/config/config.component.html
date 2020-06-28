@@ -1,0 +1,19 @@
+<app-toolbar></app-toolbar>
+<div *ngFor="let node of this.entries; trackBy: trackByFn">
+	<app-config-node-entry
+		[id]="node.device_id"
+		[name]="node.device_name"
+		[room]="node.device_room"
+		[leds]="node.device_leds"
+		type="update"
+	></app-config-node-entry>
+</div>
+<div>
+	<app-config-node-entry
+		id="new"
+		name="new"
+		room="new"
+		leds="15"
+		type="create"
+	></app-config-node-entry>
+</div>

@@ -1,0 +1,93 @@
+<div class="border mb-5">
+	<h4 class="card-header">{{ name }}</h4>
+	<mat-form-field appearance="fill" class="full-width-field">
+		<mat-label>Light modes</mat-label>
+		<mat-select [(value)]="selectedItem" class="text-center">
+			<mat-option *ngFor="let light of lightModes" [value]="light.value">
+				{{ light.viewValue }}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<input
+		type="color"
+		[(ngModel)]="colorValue"
+		(change)="updateColor()"
+		class="full-width-field"
+	/><br /><br />
+	<div *ngIf="selectedItem === 'RAINBOW'">
+		<mat-form-field appearance="fill" class="full-width-field">
+			<mat-label>speed</mat-label>
+			<input
+				matInput
+				[(ngModel)]="speed"
+				type="number"
+				placeholder="30"
+				value="30"
+				class="text-center"
+			/>
+		</mat-form-field>
+	</div>
+	<div *ngIf="selectedItem === 'MANUAL'">
+		<mat-form-field appearance="fill" class="full-width-field">
+			<mat-label>red</mat-label>
+			<input
+				matInput
+				[(ngModel)]="red"
+				type="number"
+				placeholder="10"
+				value="10"
+				class="text-center"
+			/>
+		</mat-form-field>
+		<mat-form-field appearance="fill" class="full-width-field">
+			<mat-label>green</mat-label>
+			<input
+				matInput
+				[(ngModel)]="green"
+				type="number"
+				placeholder="green"
+				value="15"
+				class="text-center"
+			/>
+		</mat-form-field>
+		<mat-form-field appearance="fill" class="full-width-field">
+			<mat-label>blue</mat-label>
+			<input
+				matInput
+				[(ngModel)]="blue"
+				type="number"
+				placeholder="blue"
+				value="20"
+				class="text-center"
+			/>
+		</mat-form-field>
+	</div>
+	<div>
+		<button
+			class="btn btn-primary full-width-field"
+			(click)="update()"
+			[disabled]="selectedItem === 'none'"
+		>
+			Update
+		</button>
+	</div>
+
+	<div class="card-footer text-muted">
+		<mat-checkbox
+			[(ngModel)]="debugChecked"
+			(change)="debugCmd()"
+			class="text-center"
+		>
+			Debug
+		</mat-checkbox>
+
+		<mat-checkbox [(ngModel)]="resetChecked" class="text-center ml-2">
+			WiFi Reset
+		</mat-checkbox>
+		<div *ngIf="resetChecked">
+			<button class="btn btn-danger full-width-field" (click)="resetWifi()">
+				Reset WiFi
+			</button>
+		</div>
+	</div>
+</div>

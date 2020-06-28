@@ -1,0 +1,4 @@
+<app-toolbar></app-toolbar>
+<div *ngFor="let room of inventory; trackBy: trackByFn">
+	<app-room [name]="room.name" [lights]="room.lights"></app-room>
+</div>
